@@ -3,40 +3,23 @@
 int main() {
 
 	setlocale(LC_ALL, "RU");
+	
+	srand(time(NULL));
+	int rand_num = 1 + rand() % 15;
 
-	float num1, num2, res;
-	char math;
+	bool stop = false;
+	int user_number;
 
-	std::cout << "Введите число 1 = ";
-	std::cin >> num1;
+	do {
+		std::cout << "Enter number: ";
+		std::cin >> user_number;
+		if (user_number != rand_num)
+			std::cout << "Вы не угадали" << std::endl;
+		else 
+			stop = true;
+	} while (!stop);
 
-	std::cout << "Введите число 2 = ";
-	std::cin >> num2;
-
-	std::cout << "Введите математическое действие (+, -, *, /) = ";
-	std::cin >> math;
-
-	switch (math) {
-	case('+'):
-		res = num1 + num2; 
-		std::cout << "Результат = " << res;
-		break;
-	case('-'):
-		res = num1 - num2;
-		std::cout << "Результат = " << res;
-		break;
-	case('*'):
-		res = num1 * num2;
-		std::cout << "Результат = " << res;
-		break;
-	case('/'):
-		res = num1 / num2;
-		std::cout << "Результат = " << res;
-		break;
-
-	}
-
-
+	std::cout << "Вы победили ! Поздравляем !";
 
 	return 0;
 }
